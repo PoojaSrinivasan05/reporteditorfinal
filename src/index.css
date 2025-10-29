@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+:root {
+  --background: 235 25% 97%;
+  --foreground: 255 20% 16%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 255 20% 16%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 255 20% 16%;
+
+  /* Primary (Royal Tech Purple) */
+  --primary: 265 82% 55%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary (Neon Cyan Accent) */
+  --secondary: 184 90% 52%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 235 30% 96%;
+  --muted-foreground: 255 15% 48%;
+
+  --accent: 275 75% 72%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 355 70% 58%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 245 20% 88%;
+  --input: 245 22% 92%;
+  --ring: 265 82% 55%;
+
+  --radius: 0.75rem;
+
+  /* Futuristic gradients */
+  --gradient-warm: linear-gradient(135deg, hsl(235 25% 98%) 0%, hsl(265 70% 97%) 50%, hsl(184 70% 96%) 100%);
+  --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(265 45% 98%) 100%);
+
+  /* Soft neon shadows */
+  --shadow-soft: 0 2px 20px -4px hsl(265 60% 70% / 0.35);
+  --shadow-hover: 0 4px 30px -4px hsl(184 90% 52% / 0.28);
+
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Sidebar (Futuristic Light UI) */
+  --sidebar-background: 240 20% 97%;
+  --sidebar-foreground: 255 18% 18%;
+  --sidebar-primary: 265 82% 55%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 265 46% 92%;
+  --sidebar-accent-foreground: 255 18% 18%;
+  --sidebar-border: 245 20% 88%;
+  --sidebar-ring: 184 90% 52%;
+}
+
+.dark {
+  --background: 250 35% 6%;
+  --foreground: 250 25% 96%;
+
+  --card: 250 32% 8%;
+  --card-foreground: 250 25% 96%;
+
+  --popover: 250 32% 8%;
+  --popover-foreground: 250 25% 96%;
+
+  /* Primary (Royal Purple Glow) */
+  --primary: 265 82% 62%;
+  --primary-foreground: 250 35% 8%;
+
+  /* Secondary (Neon Cyan Glow) */
+  --secondary: 184 90% 59%;
+  --secondary-foreground: 250 35% 8%;
+
+  --muted: 250 25% 14%;
+  --muted-foreground: 255 18% 72%;
+
+  --accent: 275 75% 65%;
+  --accent-foreground: 250 25% 96%;
+
+  --destructive: 355 75% 52%;
+  --destructive-foreground: 250 25% 96%;
+
+  --border: 250 25% 14%;
+  --input: 250 25% 12%;
+  --ring: 184 90% 59%;
+
+  /* Sidebar (Neon Tech Dark Mode) */
+  --sidebar-background: 250 32% 8%;
+  --sidebar-foreground: 265 20% 96%;
+  --sidebar-primary: 265 82% 62%;
+  --sidebar-primary-foreground: 250 35% 8%;
+  --sidebar-accent: 255 32% 14%;
+  --sidebar-accent-foreground: 265 20% 96%;
+  --sidebar-border: 255 32% 14%;
+  --sidebar-ring: 184 90% 59%;
+}
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 50%, hsl(180 40% 96%) 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Editor styles for lists - bullets move with text alignment */
+  [contenteditable="true"] ul,
+  [contenteditable="true"] ol {
+    list-style-position: inside;
+    margin: 1rem 0;
+  }
+
+  [contenteditable="true"] ul {
+    list-style-type: disc;
+  }
+  
+  [contenteditable="true"] ol {
+    list-style-type: decimal;
+  }
+  
+  [contenteditable="true"] li {
+    display: list-item;
+    margin: 0.5rem 0;
+  }
+  
+  [contenteditable="true"] p {
+    margin: 1rem 0;
+  }
+
+  /* Resizable image wrapper styles */
+  .resizable-image-wrapper {
+    transition: box-shadow 0.2s ease;
+  }
+
+  .resizable-image-wrapper:hover {
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.3);
+  }
+
+  .resizable-image-wrapper .resize-handle {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .resizable-image-wrapper:hover .resize-handle {
+    opacity: 1;
+  }
+}
